@@ -1,140 +1,141 @@
-# katseyeluvers
-katseye fanpage
 <!DOCTYPE html>
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KATSEYE Fan Page</title>
+  <title>KATSEYE Fan Page ✨</title>
   <style>
     * { box-sizing: border-box; }
     body {
       margin: 0;
-      font-family: Arial, sans-serif;
-      background: linear-gradient(180deg, #fff7fb, #fce4ec, #f9f1ff);
-      color: #4b2e4d;
+      font-family: 'Arial', sans-serif;
+      background: linear-gradient(135deg, #ff9a9e 0%, #fecfef 50%, #f9f1ff 100%);
+      color: #3a1a3a;
     }
     header {
       text-align: center;
-      padding: 80px 20px 50px;
-      background: rgba(255,255,255,0.6);
-      backdrop-filter: blur(10px);
+      padding: 100px 20px 60px;
+      background: rgba(255,255,255,0.15);
+      backdrop-filter: blur(20px);
     }
-    h1 { font-size: 3.5rem; margin: 0; color: #7a2f6e; }
-    .emoji { font-size: 2rem; margin-top: 10px; }
-    .subtitle { font-size: 1.2rem; color: #7a4f78; max-width: 700px; margin: 20px auto; }
-    section { max-width: 1000px; margin: 40px auto; padding: 0 20px; }
+    h1 {
+      font-size: clamp(3rem, 8vw, 5.5rem);
+      margin: 0;
+      background: linear-gradient(45deg, #ff6b9d, #c44569, #ff9a9e);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      animation: glow 2s ease-in-out infinite alternate;
+    }
+    @keyframes glow { from { text-shadow: 0 0 20px #ff6b9d; } to { text-shadow: 0 0 35px #c44569; } }
+    .emoji { font-size: 2.5rem; margin: 20px 0; animation: bounce 2s infinite; }
+    @keyframes bounce { 0%, 100% { transform: translateY(0); } 50% { transform: translateY(-15px); } }
+    section { max-width: 1200px; margin: 50px auto; padding: 0 20px; scroll-margin-top: 100px; }
     .card {
-      background: rgba(255,255,255,0.9);
-      border-radius: 24px;
-      padding: 28px;
-      margin-bottom: 25px;
-      box-shadow: 0 10px 28px rgba(0,0,0,0.08);
+      background: rgba(255,255,255,0.95);
+      border-radius: 25px;
+      padding: 35px;
+      margin-bottom: 30px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transition: all 0.4s;
     }
+    .card:hover { transform: translateY(-10px); box-shadow: 0 25px 60px rgba(0,0,0,0.15); }
     .members-grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 20px;
+      gap: 30px;
     }
     .member {
       text-align: center;
+      padding: 25px;
+      border-radius: 20px;
+      background: linear-gradient(135deg, #fff8fb, #ffeef8);
+      border: 3px solid rgba(255,107,157,0.4);
+      transition: all 0.4s;
+    }
+    .member:hover { transform: scale(1.03); border-color: #ff6b9d; }
+    .member img {
+      width: 140px;
+      height: 140px;
+      border-radius: 50%;
+      object-fit: cover;
+      margin-bottom: 15px;
+      border: 4px solid #ffecf5;
+      box-shadow: 0 8px 25px rgba(255,107,157,0.3);
+    }
+    .member h3 { color: #c44569; margin: 12px 0 8px; font-size: 1.5rem; }
+    .songs-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+      gap: 20px;
+    }
+    .song {
+      background: linear-gradient(135deg, #ffecf5, #fff0f8);
       padding: 20px;
       border-radius: 18px;
-      background: #fff8fb;
-      border: 2px solid #f1c7d4;
+      border-left: 5px solid #ff6b9d;
+      transition: all 0.3s;
     }
-    .member h3 { color: #7a2f6e; margin: 10px 0; }
-    .discog-list { list-style: none; padding: 0; }
-    .discog-list li {
-      background: #ffecf5;
-      margin: 10px 0;
-      padding: 12px;
-      border-radius: 12px;
-      border-left: 4px solid #ff8fb1;
+    .song:hover { transform: translateX(8px); }
+    .song a { color: #c44569; text-decoration: none; font-weight: bold; }
+    .song a:hover { color: #ff6b9d; }
+    nav {
+      text-align: center;
+      padding: 25px;
+      background: rgba(255,255,255,0.25);
+      position: sticky;
+      top: 0;
+      z-index: 100;
     }
-    .btn { 
-      display: inline-block; 
-      padding: 12px 20px; 
-      background: #ff8fb1; 
-      color: white; 
-      text-decoration: none; 
-      border-radius: 999px; 
+    nav a {
+      margin: 0 12px;
+      padding: 12px 22px;
+      background: rgba(255,107,157,0.3);
+      color: #3a1a3a;
+      text-decoration: none;
+      border-radius: 25px;
       font-weight: bold;
+      transition: all 0.3s;
     }
-    .btn:hover { background: #ff6f9c; }
-    footer { text-align: center; padding: 25px; color: #7a4f78; }
+    nav a:hover { background: #ff6b9d; color: white; }
+    footer { text-align: center; padding: 40px; color: #8b5f83; background: rgba(255,255,255,0.3); }
   </style>
 </head>
 <body>
   <header>
     <h1>KATSEYE</h1>
-    <div class="emoji">✨ 🐱 💖</div>
-    <p class="subtitle">
-      Your ultimate fan page for the global girl group! Debuted June 28, 2024. Grammy-nominated in 2026! [web:70][web:72]
+    <div class="emoji">✨ 🐱 💖 🎤 🌟</div>
+    <p style="font-size: 1.3rem; max-width: 800px; margin: 25px auto; color: #6b3a6b;">
+      Global girl group | Grammy 2026 | HYBE x Geffen | OT6 Forever! [web:70][web:72]
     </p>
   </header>
 
-  <section>
-    <div class="card">
-      <h2>About KATSEYE</h2>
-      <p>
-        6-member girl group under HYBE & Geffen. Members from Philippines, Korea, Switzerland, USA.
-        Formed through <em>The Debut: Dream Academy</em>. Songs like "Debut" and "Gnarly" [web:76][web:85].
-      </p>
-      <a class="btn" href="https://www.instagram.com/katseye/" target="_blank">Follow on IG</a>
-    </div>
-  </section>
+  <nav>
+    <a href="#members">Members</a>
+    <a href="#songs">Songs</a>
+    <a href="#about">About</a>
+  </nav>
 
-  <section>
-    <h2 style="text-align: center; color: #7a2f6e;">Members</h2>
+  <section id="members">
+    <h2 style="text-align: center; color: #c44569; font-size: 2.8rem; margin-bottom: 40px;">The 6 Queens</h2>
     <div class="members-grid">
       <div class="member">
+        <img src="https://images.unsplash.com/photo-1606107557195-0e29a4b5b4aa?w=300&h=300&fit=crop&crop=face" alt="Sophia" loading="lazy">
         <h3>Sophia Laforteza</h3>
-        <p>Leader, Main Vocalist (Philippines) | Purple ⚓</p>
+        <p><strong>Leader</strong> | Main Vocal<br>Philippines | 2002 | Purple ⚓<br>@sophia.katseye [web:110]</p>
       </div>
       <div class="member">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" alt="Manon" loading="lazy">
         <h3>Manon Bannerman</h3>
-        <p>Center, Visual (Switzerland) | Pastel Yellow 👑</p>
+        <p><strong>Center</strong> | Visual<br>Switzerland | 2002 | Pastel Yellow 👑<br>@manonkatseye [web:111]</p>
       </div>
       <div class="member">
+        <img src="https://images.unsplash.com/photo-1435683443108-3c5b0e9d3e92?w=300&h=300&fit=crop&crop=face" alt="Daniela" loading="lazy">
         <h3>Daniela Avanzini</h3>
-        <p>Main Dancer (USA) | Sky Blue 🛡️</p>
+        <p><strong>Main Dancer</strong><br>USA | Sky Blue 🛡️<br>@daniela.katseye [web:112]</p>
       </div>
       <div class="member">
+        <img src="https://images.unsplash.com/photo-1494790108755-2616b612b786?w=300&h=300&fit=crop&crop=face" alt="Lara" loading="lazy">
         <h3>Lara Raj</h3>
-        <p>Main Vocalist (USA) | Sage Green 🗝️</p>
+        <p><strong>Main Vocal</strong><br>USA | 2005 | Sage Green 🗝️<br>@lararajj [web:119]</p>
       </div>
-      <div class="member">
-        <h3>Megan Skiendiel</h3>
-        <p>Dancer, Vocalist, Rapper (USA) | Pastel Peach 🍒</p>
-      </div>
-      <div class="member">
-        <h3>Yoonchae Jeong</h3>
-        <p>Maknae (Korea) | Pink 🐚</p>
-      </div>
-    </div>[web:70][web:73]
-  </section>
-
-  <section>
-    <div class="card">
-      <h2>Discography</h2>
-      <ul class="discog-list">
-        ><strong>Debut</strong> (June 2024) - Single</li>
-        ><strong>SIS (Soft Is Strong)</strong> - 1st EP</li>
-        ><strong>Beautiful Chaos</strong> (June 2025) - 2nd EP: Gnarly, Gabriela [web:85][web:87]</li>
-      </ul>
-    </div>
-  </section>
-
-  <section>
-    <div class="card">
-      <h2>Latest News</h2>
-      <p>Grammy performance 2026! New album coming soon. Check their airport looks in Korea! [web:72][web:78]</p>
-    </div>
-  </section>
-
-  <footer>
-    © 2026 KATSEYE Fan Page | Made with 💖
-  </footer>
-</body>
-</html>
+      <div class="
