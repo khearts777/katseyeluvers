@@ -4,74 +4,200 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Math Pet World</title>
+<title>Math Pet Paradise</title>
 
 <style>
 
 body{
     margin:0;
-    overflow:hidden;
     font-family:Arial;
-    background:linear-gradient(to bottom,#89CFF0,#dff6ff);
+    background:linear-gradient(to bottom,#8fd3ff,#dff6ff);
+    overflow:hidden;
 }
 
-#game{
+#gameArea{
     width:100vw;
     height:100vh;
     position:relative;
 }
 
-h1{
-    position:absolute;
-    top:10px;
-    width:100%;
+/* HEADER */
+
+#title{
     text-align:center;
+    font-size:50px;
     color:white;
-    text-shadow:2px 2px 5px black;
+    padding-top:20px;
+    text-shadow:3px 3px 6px rgba(0,0,0,0.3);
 }
 
+/* PET */
+
 #pet{
-    width:120px;
-    height:120px;
+    width:140px;
+    height:140px;
+    background:#ffb6c1;
+    border-radius:50%;
     position:absolute;
+    top:230px;
     left:45%;
-    top:45%;
-    transition:0.2s;
-    image-rendering:pixelated;
+    transition:all 1s ease;
+    animation:bounce 1s infinite alternate;
 }
+
+/* EARS */
+
+.ear{
+    width:40px;
+    height:50px;
+    background:#ffb6c1;
+    position:absolute;
+    border-radius:50%;
+}
+
+#ear1{
+    top:-20px;
+    left:15px;
+    transform:rotate(-20deg);
+}
+
+#ear2{
+    top:-20px;
+    right:15px;
+    transform:rotate(20deg);
+}
+
+/* EYES */
+
+.eye{
+    width:15px;
+    height:15px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    top:50px;
+}
+
+#eye1{
+    left:40px;
+}
+
+#eye2{
+    right:40px;
+}
+
+/* MOUTH */
+
+#mouth{
+    width:30px;
+    height:15px;
+    border-bottom:4px solid black;
+    border-radius:50%;
+    position:absolute;
+    bottom:35px;
+    left:55px;
+}
+
+/* FLOATING CLOUDS */
 
 .cloud{
     position:absolute;
-    font-size:50px;
-    animation:floatCloud 30s linear infinite;
+    font-size:60px;
+    animation:cloudMove linear infinite;
 }
 
-@keyframes floatCloud{
+#cloud1{
+    top:70px;
+    animation-duration:25s;
+}
+
+#cloud2{
+    top:150px;
+    animation-duration:40s;
+}
+
+@keyframes cloudMove{
     from{
-        transform:translateX(-200px);
+        left:-200px;
     }
+
     to{
-        transform:translateX(120vw);
+        left:120%;
     }
 }
+
+/* PET BOUNCE */
+
+@keyframes bounce{
+
+    from{
+        transform:translateY(0px);
+    }
+
+    to{
+        transform:translateY(-15px);
+    }
+
+}
+
+/* PANEL */
 
 #panel{
     position:absolute;
     bottom:0;
     width:100%;
-    background:rgba(255,255,255,0.9);
+    background:white;
+    border-top-left-radius:30px;
+    border-top-right-radius:30px;
+    padding:20px;
+    box-sizing:border-box;
+    height:330px;
+}
+
+/* STATS */
+
+#stats{
+    font-size:24px;
+    text-align:center;
+    margin-bottom:15px;
+}
+
+/* QUESTION */
+
+#question{
+    text-align:center;
+    font-size:32px;
+    margin-bottom:15px;
+}
+
+/* INPUT */
+
+input{
+    display:block;
+    margin:auto;
     padding:15px;
+    width:180px;
+    font-size:24px;
+    border-radius:15px;
+    border:3px solid pink;
     text-align:center;
 }
 
+/* BUTTONS */
+
+.buttons{
+    text-align:center;
+    margin-top:15px;
+}
+
 button{
-    padding:10px 15px;
-    margin:5px;
+    padding:14px 20px;
+    margin:8px;
+    font-size:18px;
     border:none;
-    border-radius:10px;
+    border-radius:15px;
     background:#ff69b4;
     color:white;
-    font-size:16px;
     cursor:pointer;
 }
 
@@ -79,32 +205,14 @@ button:hover{
     background:#ff1493;
 }
 
-input{
-    padding:10px;
-    width:120px;
-    border-radius:10px;
-    border:2px solid pink;
-    text-align:center;
-}
-
-#stats{
-    margin:10px;
-    font-size:18px;
-}
-
-#question{
-    font-size:24px;
-    margin:10px;
-}
+/* MESSAGE */
 
 #message{
-    min-height:30px;
-    font-size:20px;
+    text-align:center;
+    font-size:24px;
+    margin-top:15px;
     color:#ff1493;
-}
-
-.food{
-    font-size:30px;
+    min-height:30px;
 }
 
 </style>
@@ -112,15 +220,30 @@ input{
 
 <body>
 
-<div id="game">
+<div id="gameArea">
 
-<h1>🎡 Math Pet World 🎡</h1>
+<div id="title">
+🎡 Math Pet Paradise 🎡
+</div>
 
-<div class="cloud" style="top:60px;">☁️</div>
-<div class="cloud" style="top:150px; animation-delay:10s;">☁️</div>
+<div class="cloud" id="cloud1">☁️</div>
+<div class="cloud" id="cloud2">☁️</div>
 
-<img id="pet"
-src="https://i.imgur.com/QZ6K4Gx.png">
+<!-- PET -->
+
+<div id="pet">
+
+<div class="ear" id="ear1"></div>
+<div class="ear" id="ear2"></div>
+
+<div class="eye" id="eye1"></div>
+<div class="eye" id="eye2"></div>
+
+<div id="mouth"></div>
+
+</div>
+
+<!-- PANEL -->
 
 <div id="panel">
 
@@ -135,37 +258,56 @@ src="https://i.imgur.com/QZ6K4Gx.png">
 </div>
 
 <div id="question">
-Choose a quiz type!
+Choose a difficulty!
 </div>
 
 <input type="number" id="answer">
 
-<br>
+<div class="buttons">
 
-<button onclick="generateQuestion('easy')">Easy</button>
-<button onclick="generateQuestion('medium')">Medium</button>
-<button onclick="generateQuestion('hard')">Hard</button>
+<button onclick="generateQuestion('easy')">
+Easy
+</button>
 
-<button onclick="submitAnswer()">Submit</button>
+<button onclick="generateQuestion('medium')">
+Medium
+</button>
+
+<button onclick="generateQuestion('hard')">
+Hard
+</button>
+
+<button onclick="submitAnswer()">
+Submit
+</button>
+
+</div>
+
+<div class="buttons">
+
+<button onclick="buyFood('Apple',10,10)">
+🍎 Apple
+</button>
+
+<button onclick="buyFood('Cake',20,25)">
+🍰 Cake
+</button>
+
+<button onclick="buyFood('Pizza',35,40)">
+🍕 Pizza
+</button>
+
+<button onclick="buyToy()">
+🧸 Toy
+</button>
+
+<button onclick="ageUp()">
+⭐ Age Up
+</button>
+
+</div>
 
 <div id="message"></div>
-
-<hr>
-
-<h2>🛒 Food Shop</h2>
-
-<button onclick="buyFood('apple',10,10)">🍎 Apple</button>
-<button onclick="buyFood('cake',20,25)">🍰 Cake</button>
-<button onclick="buyFood('pizza',35,40)">🍕 Pizza</button>
-
-<h2>🧸 Toy Shop</h2>
-
-<button onclick="buyToy(15)">⚽ Ball</button>
-<button onclick="buyToy(30)">🧸 Teddy</button>
-
-<h2>⭐ Upgrade</h2>
-
-<button onclick="ageUp()">Age Up (50)</button>
 
 </div>
 
@@ -181,57 +323,80 @@ let age = 1
 let correctAnswer = 0
 let reward = 0
 
-const pet = document.getElementById("pet")
+const pet =
+document.getElementById("pet")
+
+/* MOVE PET */
+
+function movePet(){
+
+    let x =
+    Math.random() * 60 + 20
+
+    let y =
+    Math.random() * 120 + 150
+
+    pet.style.left = x + "%"
+
+    pet.style.top = y + "px"
+
+}
+
+setInterval(movePet,2000)
+
+/* UPDATE */
 
 function updateStats(){
 
-    document.getElementById("coins").innerHTML = coins
-    document.getElementById("hunger").innerHTML = hunger
-    document.getElementById("happy").innerHTML = happiness
-    document.getElementById("age").innerHTML = age
+    document.getElementById("coins")
+    .innerHTML = coins
 
-    if(age >= 5){
-        pet.src =
-        "https://i.imgur.com/9Xn4FQx.png"
-    }
+    document.getElementById("hunger")
+    .innerHTML = hunger
+
+    document.getElementById("happy")
+    .innerHTML = happiness
+
+    document.getElementById("age")
+    .innerHTML = age
 
     if(hunger <= 0 || happiness <= 0){
 
         alert("Your pet ran away 😭")
+
         location.reload()
 
     }
 
 }
 
-function movePet(){
+/* RANDOM */
 
-    let x = Math.random() * 70
-    let y = Math.random() * 50
+function rand(min,max){
 
-    pet.style.left = x + "%"
-    pet.style.top = y + "%"
+    return Math.floor(
+        Math.random() *
+        (max-min+1)
+    ) + min
 
 }
 
-setInterval(movePet,1500)
+/* QUESTIONS */
 
 function generateQuestion(level){
 
     let types = [
-        "addition",
-        "subtraction",
-        "multiplication",
+        "times",
         "division",
         "squareRoot",
         "cube",
-        "fraction"
+        "fraction",
+        "addition",
+        "mixed"
     ]
 
     let type =
-    types[Math.floor(Math.random() * types.length)]
-
-    let q = ""
+    types[rand(0,types.length-1)]
 
     if(level == "easy"){
         reward = 5
@@ -245,31 +410,11 @@ function generateQuestion(level){
         reward = 30
     }
 
-    if(type == "addition"){
+    let q = ""
 
-        let a = rand(1,50)
-        let b = rand(1,50)
+    if(type == "times"){
 
-        correctAnswer = a + b
-
-        q = `${a} + ${b}`
-
-    }
-
-    else if(type == "subtraction"){
-
-        let a = rand(20,100)
-        let b = rand(1,20)
-
-        correctAnswer = a - b
-
-        q = `${a} - ${b}`
-
-    }
-
-    else if(type == "multiplication"){
-
-        let a = rand(2,20)
+        let a = rand(2,12)
         let b = rand(2,12)
 
         correctAnswer = a * b
@@ -295,32 +440,58 @@ function generateQuestion(level){
 
         let ans = rand(2,15)
 
-        let num = ans * ans
-
         correctAnswer = ans
 
-        q = `√${num}`
+        q = `√${ans*ans}`
 
     }
 
     else if(type == "cube"){
 
-        let num = rand(2,6)
+        let n = rand(2,6)
 
-        correctAnswer = num * num * num
+        correctAnswer =
+        n*n*n
 
-        q = `${num}³`
+        q = `${n}³`
 
     }
 
     else if(type == "fraction"){
 
-        let a = rand(1,5)
-        let b = rand(1,5)
+        let a = rand(1,9)
+        let b = rand(1,9)
 
-        correctAnswer = a + b
+        correctAnswer = a+b
 
-        q = `${a}/10 + ${b}/10 = ? (numerator only)`
+        q =
+        `${a}/10 + ${b}/10
+        (numerator only)`
+
+    }
+
+    else if(type == "addition"){
+
+        let a = rand(10,99)
+        let b = rand(10,99)
+
+        correctAnswer = a+b
+
+        q = `${a} + ${b}`
+
+    }
+
+    else{
+
+        let a = rand(1,20)
+        let b = rand(1,10)
+        let c = rand(1,20)
+
+        correctAnswer =
+        (a*b)+c
+
+        q =
+        `${a} × ${b} + ${c}`
 
     }
 
@@ -329,10 +500,14 @@ function generateQuestion(level){
 
 }
 
+/* SUBMIT */
+
 function submitAnswer(){
 
     let user =
-    Number(document.getElementById("answer").value)
+    Number(
+    document.getElementById("answer")
+    .value)
 
     if(user == correctAnswer){
 
@@ -356,11 +531,14 @@ function submitAnswer(){
 
 }
 
+/* FOOD */
+
 function buyFood(name,cost,heal){
 
     if(coins >= cost){
 
         coins -= cost
+
         hunger += heal
 
         if(hunger > 100){
@@ -369,7 +547,7 @@ function buyFood(name,cost,heal){
 
         document.getElementById("message")
         .innerHTML =
-        `Your pet enjoyed the ${name}!`
+        `Your pet loved the ${name}!`
 
     }
 
@@ -385,11 +563,14 @@ function buyFood(name,cost,heal){
 
 }
 
-function buyToy(cost){
+/* TOY */
 
-    if(coins >= cost){
+function buyToy(){
 
-        coins -= cost
+    if(coins >= 20){
+
+        coins -= 20
+
         happiness += 20
 
         if(happiness > 100){
@@ -398,7 +579,7 @@ function buyToy(cost){
 
         document.getElementById("message")
         .innerHTML =
-        "Your pet feels happier!"
+        "Your pet is happier 🧸"
 
     }
 
@@ -406,7 +587,7 @@ function buyToy(cost){
 
         document.getElementById("message")
         .innerHTML =
-        "Not enough coins!"
+        "Need more coins!"
 
     }
 
@@ -414,12 +595,18 @@ function buyToy(cost){
 
 }
 
+/* AGE */
+
 function ageUp(){
 
     if(coins >= 50){
 
         coins -= 50
+
         age += 1
+
+        pet.style.background =
+        `hsl(${rand(0,360)},70%,75%)`
 
         document.getElementById("message")
         .innerHTML =
@@ -439,13 +626,7 @@ function ageUp(){
 
 }
 
-function rand(min,max){
-
-    return Math.floor(
-        Math.random() * (max-min+1)
-    ) + min
-
-}
+/* DECAY */
 
 setInterval(function(){
 
