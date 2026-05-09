@@ -1,23 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
 
 <meta charset="UTF-8">
 <meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
-<title>Ultimate Math Dog World</title>
+<title>Math Dog Paradise</title>
 
 <style>
-
-/* BODY */
 
 body{
     margin:0;
     font-family:Arial;
+    background:linear-gradient(to bottom,#87ceeb,#dff6ff);
     overflow-x:hidden;
-    background:linear-gradient(#87ceeb,#dff6ff);
-    transition:1s;
 }
 
 /* TITLE */
@@ -25,26 +22,17 @@ body{
 h1{
     text-align:center;
     color:white;
-    font-size:52px;
+    font-size:50px;
     margin-top:20px;
-    text-shadow:3px 3px 6px black;
+    text-shadow:2px 2px 5px black;
 }
 
 /* TOP AREA */
 
 #top{
-    height:430px;
     position:relative;
+    height:420px;
     overflow:hidden;
-}
-
-/* SUN + MOON */
-
-#skyObject{
-    position:absolute;
-    right:60px;
-    top:40px;
-    font-size:70px;
 }
 
 /* CLOUDS */
@@ -56,7 +44,7 @@ h1{
 }
 
 .cloud1{
-    top:40px;
+    top:50px;
     animation-duration:25s;
 }
 
@@ -80,22 +68,43 @@ h1{
 /* DOG */
 
 #dog{
-    width:190px;
-    height:190px;
-    background:#c58c5b;
+    position:absolute;
+    width:200px;
+    height:170px;
+    left:40%;
+    top:180px;
+    animation:bounce 1s infinite alternate;
+    transition:left 2s ease;
+}
+
+/* BODY */
+
+#body{
+    width:180px;
+    height:120px;
+    background:#d8a36d;
+    border-radius:80px;
+    position:absolute;
+    bottom:0;
+}
+
+/* HEAD */
+
+#head{
+    width:120px;
+    height:120px;
+    background:#d8a36d;
     border-radius:50%;
     position:absolute;
-    left:40%;
-    top:170px;
-    transition:all 2s ease;
-    animation:bounce 1s infinite alternate;
+    top:-40px;
+    left:20px;
 }
 
 /* EARS */
 
 .ear{
-    width:50px;
-    height:70px;
+    width:35px;
+    height:60px;
     background:#8b5a2b;
     border-radius:50%;
     position:absolute;
@@ -103,60 +112,113 @@ h1{
 
 #ear1{
     left:10px;
-    top:-20px;
-    transform:rotate(-25deg);
+    top:-10px;
+    transform:rotate(-20deg);
 }
 
 #ear2{
     right:10px;
-    top:-20px;
-    transform:rotate(25deg);
+    top:-10px;
+    transform:rotate(20deg);
 }
 
 /* EYES */
 
 .eye{
-    width:18px;
-    height:18px;
+    width:12px;
+    height:12px;
     background:black;
     border-radius:50%;
     position:absolute;
-    top:70px;
+    top:45px;
 }
 
 #eye1{
-    left:50px;
+    left:35px;
 }
 
 #eye2{
-    right:50px;
+    right:35px;
 }
 
 /* NOSE */
 
 #nose{
-    width:30px;
-    height:20px;
+    width:20px;
+    height:14px;
     background:black;
     border-radius:50%;
     position:absolute;
-    left:80px;
-    top:100px;
+    left:50px;
+    top:65px;
 }
 
 /* MOUTH */
 
 #mouth{
-    width:40px;
-    height:20px;
-    border-bottom:4px solid black;
+    width:28px;
+    height:15px;
+    border-bottom:3px solid black;
     border-radius:50%;
     position:absolute;
-    left:75px;
-    top:120px;
+    left:46px;
+    top:72px;
 }
 
-/* BOUNCE */
+/* LEGS */
+
+.leg{
+    width:18px;
+    height:45px;
+    background:#c48b55;
+    position:absolute;
+    bottom:-35px;
+    border-radius:10px;
+}
+
+#leg1{
+    left:30px;
+}
+
+#leg2{
+    left:65px;
+}
+
+#leg3{
+    right:65px;
+}
+
+#leg4{
+    right:30px;
+}
+
+/* TAIL */
+
+#tail{
+    width:60px;
+    height:12px;
+    background:#8b5a2b;
+    position:absolute;
+    right:-40px;
+    top:20px;
+    border-radius:20px;
+    transform-origin:left center;
+    animation:wag 0.4s infinite alternate;
+}
+
+/* ANIMATIONS */
+
+@keyframes wag{
+
+    from{
+        transform:rotate(15deg);
+    }
+
+    to{
+        transform:rotate(-15deg);
+    }
+
+}
 
 @keyframes bounce{
 
@@ -165,7 +227,7 @@ h1{
     }
 
     to{
-        transform:translateY(-14px);
+        transform:translateY(-12px);
     }
 
 }
@@ -177,7 +239,7 @@ h1{
     bottom:0;
     width:100%;
     height:120px;
-    background:#69d769;
+    background:#6fd96f;
 }
 
 /* PANEL */
@@ -188,7 +250,7 @@ h1{
     max-width:1100px;
     margin:30px auto;
     padding:30px;
-    border-radius:30px;
+    border-radius:25px;
     box-shadow:0 0 20px rgba(0,0,0,0.2);
 }
 
@@ -196,7 +258,7 @@ h1{
 
 #stats{
     text-align:center;
-    font-size:28px;
+    font-size:26px;
     line-height:2;
 }
 
@@ -204,8 +266,8 @@ h1{
 
 #question{
     text-align:center;
-    font-size:40px;
-    margin:25px;
+    font-size:38px;
+    margin:30px;
 }
 
 /* INPUT */
@@ -213,7 +275,7 @@ h1{
 input{
     display:block;
     margin:auto;
-    width:250px;
+    width:220px;
     padding:15px;
     font-size:28px;
     border-radius:15px;
@@ -229,13 +291,13 @@ input{
 }
 
 button{
-    padding:16px 22px;
+    padding:16px 24px;
     margin:10px;
     border:none;
     border-radius:15px;
     background:#ff69b4;
     color:white;
-    font-size:22px;
+    font-size:20px;
     cursor:pointer;
 }
 
@@ -247,7 +309,7 @@ button:hover{
 
 #message{
     text-align:center;
-    font-size:30px;
+    font-size:28px;
     color:#ff1493;
     min-height:40px;
     margin-top:20px;
@@ -255,8 +317,8 @@ button:hover{
 
 h2{
     text-align:center;
-    font-size:34px;
     margin-top:40px;
+    font-size:34px;
 }
 
 </style>
@@ -264,11 +326,9 @@ h2{
 
 <body>
 
-<h1>🐶 Ultimate Math Dog World 🐶</h1>
+<h1>🐶 Math Dog Paradise 🐶</h1>
 
 <div id="top">
-
-<div id="skyObject">☀️</div>
 
 <div class="cloud cloud1">☁️</div>
 <div class="cloud cloud2">☁️</div>
@@ -276,6 +336,19 @@ h2{
 <!-- DOG -->
 
 <div id="dog">
+
+<div id="body">
+
+<div id="tail"></div>
+
+<div class="leg" id="leg1"></div>
+<div class="leg" id="leg2"></div>
+<div class="leg" id="leg3"></div>
+<div class="leg" id="leg4"></div>
+
+</div>
+
+<div id="head">
 
 <div class="ear" id="ear1"></div>
 <div class="ear" id="ear2"></div>
@@ -289,11 +362,11 @@ h2{
 
 </div>
 
+</div>
+
 <div id="ground"></div>
 
 </div>
-
-<!-- PANEL -->
 
 <div id="panel">
 
@@ -301,11 +374,6 @@ h2{
 
 💰 Coins:
 <span id="coins">0</span>
-
-|
-
-💎 Gems:
-<span id="gems">0</span>
 
 |
 
@@ -319,41 +387,31 @@ h2{
 
 |
 
-❤️ Friendship:
-<span id="friendship">0</span>
-
-|
-
 🎂 Age:
 <span id="age">1</span>
-
-|
-
-🏆 Level:
-<span id="level">1</span>
 
 </div>
 
 <div id="question">
-Choose a difficulty!
+Press a difficulty!
 </div>
 
 <input
 type="number"
 id="answer"
-placeholder="Answer here">
+placeholder="Answer">
 
 <div class="buttons">
 
-<button onclick="question('easy')">
+<button onclick="newQuestion('easy')">
 Easy
 </button>
 
-<button onclick="question('medium')">
+<button onclick="newQuestion('medium')">
 Medium
 </button>
 
-<button onclick="question('hard')">
+<button onclick="newQuestion('hard')">
 Hard
 </button>
 
@@ -385,90 +443,28 @@ Submit
 
 </div>
 
-<h2>🧸 Toys</h2>
-
-<div class="buttons">
-
-<button onclick="buyToy(20)">
-⚽ Ball
-</button>
-
-<button onclick="buyToy(35)">
-🧸 Teddy
-</button>
-
-<button onclick="buyToy(50)">
-🦴 Bone
-</button>
-
-</div>
-
-<h2>🧼 Care</h2>
-
-<div class="buttons">
-
-<button onclick="bathDog()">
-🛁 Bath
-</button>
-
-<button onclick="sleepDog()">
-🌙 Sleep
-</button>
-
-</div>
-
-<h2>🎨 Customization</h2>
-
-<div class="buttons">
-
-<button onclick="changeDogColor()">
-🎨 Change Fur
-</button>
-
-<button onclick="changeBackground()">
-🌈 Background
-</button>
-
-</div>
-
-<h2>⭐ Upgrades</h2>
-
-<div class="buttons">
-
-<button onclick="ageUp()">
-Age Up (100)
-</button>
-
-<button onclick="buyLegendary()">
-👑 Legendary Dog
-</button>
-
-</div>
-
 <div id="message"></div>
 
 </div>
 
 <script>
 
-/* STATS */
-
 let coins = 0
-let gems = 0
 let hunger = 100
 let happiness = 100
-let friendship = 0
 let age = 1
-let level = 1
 
-let answer = 0
+let correctAnswer = 0
 let reward = 0
-let streak = 0
+
+/* IMPORTANT FIX */
+
+let questionActive = false
+
+/* MOVE DOG */
 
 const dog =
 document.getElementById("dog")
-
-/* MOVE DOG */
 
 function moveDog(){
 
@@ -500,122 +496,106 @@ function update(){
     document.getElementById("coins")
     .innerHTML = coins
 
-    document.getElementById("gems")
-    .innerHTML = gems
-
     document.getElementById("hunger")
     .innerHTML = hunger
 
     document.getElementById("happy")
     .innerHTML = happiness
 
-    document.getElementById("friendship")
-    .innerHTML = friendship
-
     document.getElementById("age")
     .innerHTML = age
 
-    document.getElementById("level")
-    .innerHTML = level
-
 }
 
-/* QUESTIONS */
+/* NEW QUESTION */
 
-function question(diff){
+function newQuestion(level){
 
-    let types = [
-        "times",
-        "division",
-        "sqrt",
-        "cube",
-        "fraction",
-        "mixed"
-    ]
+    questionActive = true
 
-    let type =
-    types[rand(0,types.length-1)]
+    document.getElementById("answer")
+    .value = ""
 
-    if(diff=="easy"){
+    if(level=="easy"){
         reward=5
     }
 
-    if(diff=="medium"){
+    if(level=="medium"){
         reward=15
     }
 
-    if(diff=="hard"){
+    if(level=="hard"){
         reward=30
     }
 
+    let type =
+    rand(1,6)
+
     let q = ""
 
-    if(type=="times"){
+    if(type==1){
 
         let a=rand(2,12)
         let b=rand(2,12)
 
-        answer=a*b
+        correctAnswer=a*b
 
         q=`${a} × ${b}`
 
     }
 
-    else if(type=="division"){
+    else if(type==2){
 
         let b=rand(2,12)
         let ans=rand(2,12)
 
         let a=b*ans
 
-        answer=ans
+        correctAnswer=ans
 
         q=`${a} ÷ ${b}`
 
     }
 
-    else if(type=="sqrt"){
+    else if(type==3){
 
         let ans=rand(2,15)
 
-        answer=ans
+        correctAnswer=ans
 
         q=`√${ans*ans}`
 
     }
 
-    else if(type=="cube"){
+    else if(type==4){
 
         let n=rand(2,5)
 
-        answer=n*n*n
+        correctAnswer=n*n*n
 
         q=`${n}³`
 
     }
 
-    else if(type=="fraction"){
+    else if(type==5){
 
-        let a=rand(1,9)
-        let b=rand(1,9)
+        let a=rand(10,99)
+        let b=rand(10,99)
 
-        answer=a+b
+        correctAnswer=a+b
 
-        q=
-        `${a}/10 + ${b}/10
-        (numerator only)`
+        q=`${a} + ${b}`
 
     }
 
     else{
 
-        let a=rand(1,20)
-        let b=rand(1,10)
-        let c=rand(1,20)
+        let a=rand(50,100)
+        let b=rand(1,49)
 
-        answer=(a*b)+c
+        correctAnswer=a-b
 
-        q=`${a} × ${b} + ${c}`
+        q=`${a} - ${b}`
 
     }
 
@@ -628,55 +608,46 @@ function question(diff){
 
 function submitAnswer(){
 
+    if(questionActive==false){
+
+        document.getElementById("message")
+        .innerHTML=
+        "Generate a question first!"
+
+        return
+
+    }
+
     let user =
     Number(
     document.getElementById("answer")
     .value)
 
-    if(user==answer){
+    if(user==correctAnswer){
 
         coins += reward
 
-        friendship += 5
-
-        streak++
-
-        if(streak>=5){
-
-            gems += 1
-
-            document.getElementById("message")
-            .innerHTML=
-            `🔥 STREAK BONUS!
-            You earned a gem 💎`
-
-            streak=0
-
-        }
-
-        else{
-
-            document.getElementById("message")
-            .innerHTML=
-            `Correct! +${reward} coins 🎉`
-
-        }
+        document.getElementById("message")
+        .innerHTML=
+        `Correct! +${reward} coins 🎉`
 
     }
 
     else{
 
-        streak=0
-
         document.getElementById("message")
         .innerHTML=
         `Wrong 😭 Answer:
-        ${answer}`
+        ${correctAnswer}`
 
     }
 
-    level =
-    Math.floor(coins/100)+1
+    /* LOCK QUESTION */
+
+    questionActive = false
+
+    document.getElementById("answer")
+    .value = ""
 
     update()
 
@@ -692,13 +663,15 @@ function buyFood(cost,heal){
 
         hunger+=heal
 
+        happiness+=5
+
         if(hunger>100){
             hunger=100
         }
 
         document.getElementById("message")
         .innerHTML=
-        "Your dog enjoyed the food!"
+        "Dog enjoyed the food!"
 
     }
 
@@ -713,200 +686,6 @@ function buyFood(cost,heal){
     update()
 
 }
-
-/* TOYS */
-
-function buyToy(cost){
-
-    if(coins>=cost){
-
-        coins-=cost
-
-        happiness+=20
-
-        friendship+=10
-
-        if(happiness>100){
-            happiness=100
-        }
-
-        document.getElementById("message")
-        .innerHTML=
-        "Your dog is happier!"
-
-    }
-
-    else{
-
-        document.getElementById("message")
-        .innerHTML=
-        "Need more coins!"
-
-    }
-
-    update()
-
-}
-
-/* BATH */
-
-function bathDog(){
-
-    happiness += 10
-
-    document.getElementById("message")
-    .innerHTML=
-    "Clean doggo 🛁"
-
-    update()
-
-}
-
-/* SLEEP */
-
-function sleepDog(){
-
-    hunger -= 5
-
-    happiness += 15
-
-    document.getElementById("message")
-    .innerHTML=
-    "Your dog rested 🌙"
-
-    update()
-
-}
-
-/* COLORS */
-
-function changeDogColor(){
-
-    let colors = [
-        "#c58c5b",
-        "#000000",
-        "#ffffff",
-        "#d4a373",
-        "#888888"
-    ]
-
-    dog.style.background =
-    colors[rand(0,4)]
-
-}
-
-/* BACKGROUND */
-
-function changeBackground(){
-
-    let colors = [
-
-        "linear-gradient(#87ceeb,#dff6ff)",
-
-        "linear-gradient(#ffb6c1,#ffe4ec)",
-
-        "linear-gradient(#c3b1ff,#e7dcff)",
-
-        "linear-gradient(#ffdd95,#fff4d6)"
-
-    ]
-
-    document.body.style.background =
-    colors[rand(0,3)]
-
-}
-
-/* AGE */
-
-function ageUp(){
-
-    if(coins>=100){
-
-        coins-=100
-
-        age++
-
-        dog.style.transform=
-        `scale(${1+age*0.1})`
-
-        document.getElementById("message")
-        .innerHTML=
-        "Your dog grew ⭐"
-
-    }
-
-    else{
-
-        document.getElementById("message")
-        .innerHTML=
-        "Need 100 coins!"
-
-    }
-
-    update()
-
-}
-
-/* LEGENDARY */
-
-function buyLegendary(){
-
-    if(gems>=5){
-
-        gems-=5
-
-        dog.style.background=
-        "gold"
-
-        document.getElementById("message")
-        .innerHTML=
-        "👑 LEGENDARY DOG UNLOCKED!"
-
-    }
-
-    else{
-
-        document.getElementById("message")
-        .innerHTML=
-        "Need 5 gems!"
-
-    }
-
-    update()
-
-}
-
-/* DAY/NIGHT */
-
-let day=true
-
-setInterval(function(){
-
-    if(day){
-
-        document.body.style.background =
-        "linear-gradient(#0b1d51,#1b2f77)"
-
-        document.getElementById("skyObject")
-        .innerHTML="🌙"
-
-        day=false
-
-    }
-
-    else{
-
-        document.body.style.background =
-        "linear-gradient(#87ceeb,#dff6ff)"
-
-        document.getElementById("skyObject")
-        .innerHTML="☀️"
-
-        day=true
-
-    }
-
-},30000)
 
 /* DECAY */
 
