@@ -3,89 +3,46 @@
 <head>
 
 <meta charset="UTF-8">
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Math Dog Adventure</title>
+<title>Math Dog Academy</title>
 
 <style>
 
-/* BODY */
-
 body{
     margin:0;
-    font-family:Arial;
     overflow:hidden;
-    background:#87ceeb;
+    font-family:Arial;
+    background:#7ec8ff;
 }
 
-/* START SCREEN */
+/* PIXEL STYLE */
 
-#startScreen{
-    position:absolute;
-    width:100%;
-    height:100vh;
-    background:
-    linear-gradient(#8fd3ff,#dff6ff);
-    display:flex;
-    flex-direction:column;
-    justify-content:center;
-    align-items:center;
-    z-index:10;
-}
-
-#startScreen h1{
-    color:white;
-    font-size:70px;
-    text-shadow:3px 3px 8px black;
-}
-
-#playButton{
-    padding:22px 50px;
-    border:none;
-    border-radius:20px;
-    background:#ff69b4;
-    color:white;
-    font-size:30px;
-    cursor:pointer;
-}
-
-#playButton:hover{
-    background:#ff1493;
+*{
+    image-rendering:pixelated;
 }
 
 /* GAME */
 
 #game{
-    width:100%;
+    width:100vw;
     height:100vh;
     position:relative;
+    overflow:hidden;
 }
 
-/* TOP BAR */
+/* SKY */
 
-#topBar{
+#sky{
     position:absolute;
-    top:0;
-    width:100%;
-    height:90px;
-    background:rgba(255,255,255,0.8);
-    display:flex;
-    justify-content:space-around;
-    align-items:center;
-    font-size:24px;
-    z-index:5;
-}
-
-/* WORLD */
-
-#world{
     width:100%;
     height:100%;
-    position:relative;
     background:
-    linear-gradient(#87ceeb,#dff6ff);
-    overflow:hidden;
+    linear-gradient(
+    #7ec8ff 0%,
+    #bfe9ff 70%,
+    #7fd66f 70%,
+    #7fd66f 100%);
 }
 
 /* SUN */
@@ -94,80 +51,131 @@ body{
     position:absolute;
     top:40px;
     right:60px;
-    font-size:80px;
+    width:90px;
+    height:90px;
+    background:#ffd84d;
+    border-radius:50%;
 }
 
 /* CLOUDS */
 
 .cloud{
     position:absolute;
-    font-size:70px;
-    animation:cloudMove linear infinite;
+    width:140px;
+    height:60px;
+    background:white;
+    border-radius:20px;
+    animation:moveCloud 25s linear infinite;
 }
 
 .c1{
-    top:50px;
-    animation-duration:25s;
+    top:80px;
+    left:-200px;
 }
 
 .c2{
-    top:130px;
+    top:170px;
+    left:-400px;
     animation-duration:40s;
 }
 
-@keyframes cloudMove{
+@keyframes moveCloud{
 
     from{
-        left:-200px;
+        transform:translateX(0);
     }
 
     to{
-        left:120%;
+        transform:translateX(1600px);
     }
 
 }
 
-/* GROUND */
+/* BUILDINGS */
 
-#ground{
+.building{
     position:absolute;
-    bottom:0;
-    width:100%;
+    bottom:140px;
+    width:180px;
     height:180px;
-    background:#6fd96f;
+    border:6px solid black;
+    cursor:pointer;
+    transition:0.2s;
+}
+
+.building:hover{
+    transform:scale(1.05);
+}
+
+#school{
+    left:120px;
+    background:#ffdb7a;
+}
+
+#shop{
+    left:420px;
+    background:#ff9ecf;
+}
+
+#park{
+    left:720px;
+    background:#98ff98;
+}
+
+/* WINDOWS */
+
+.window{
+    width:35px;
+    height:35px;
+    background:#bce6ff;
+    border:4px solid black;
+    position:absolute;
+}
+
+/* LABEL */
+
+.label{
+    position:absolute;
+    bottom:-45px;
+    width:100%;
+    text-align:center;
+    font-size:24px;
+    font-weight:bold;
 }
 
 /* DOG */
 
 #dog{
     position:absolute;
-    width:220px;
-    height:200px;
-    left:40%;
-    bottom:110px;
-    transition:1s;
+    width:96px;
+    height:96px;
+    bottom:120px;
+    left:50%;
+    transform:translateX(-50%);
+}
+
+/* PIXEL DOG PARTS */
+
+.pixel{
+    position:absolute;
 }
 
 /* BODY */
 
-#dogBody{
-    position:absolute;
-    width:170px;
-    height:100px;
-    background:#d49a61;
-    border-radius:90px;
-    bottom:0;
-    left:40px;
+#body{
+    width:56px;
+    height:38px;
+    background:#c98b52;
+    left:20px;
+    top:35px;
 }
 
 /* HEAD */
 
-#dogHead{
-    position:absolute;
-    width:120px;
-    height:120px;
-    background:#d49a61;
-    border-radius:50%;
+#head{
+    width:38px;
+    height:38px;
+    background:#c98b52;
     left:0;
     top:20px;
 }
@@ -175,97 +183,45 @@ body{
 /* EARS */
 
 .ear{
-    position:absolute;
-    width:35px;
-    height:70px;
+    width:10px;
+    height:16px;
     background:#8b5a2b;
-    border-radius:50%;
+    top:8px;
 }
 
 #ear1{
-    left:5px;
-    top:-5px;
-    transform:rotate(-20deg);
+    left:0;
 }
 
 #ear2{
-    right:5px;
-    top:-5px;
-    transform:rotate(20deg);
+    left:26px;
 }
 
 /* EYES */
 
 .eye{
-    position:absolute;
-    width:12px;
-    height:12px;
+    width:5px;
+    height:5px;
     background:black;
-    border-radius:50%;
-    top:45px;
+    top:35px;
 }
 
 #eye1{
-    left:30px;
+    left:10px;
 }
 
 #eye2{
-    right:30px;
-}
-
-/* BLINK */
-
-.blink{
-    height:3px !important;
-    top:50px !important;
-}
-
-/* SNOUT */
-
-#snout{
-    position:absolute;
-    width:55px;
-    height:40px;
-    background:#f5d7b2;
-    border-radius:50%;
-    left:32px;
-    top:60px;
-}
-
-/* NOSE */
-
-#nose{
-    position:absolute;
-    width:16px;
-    height:10px;
-    background:black;
-    border-radius:50%;
-    left:19px;
-    top:8px;
-}
-
-/* MOUTH */
-
-#mouth{
-    position:absolute;
-    width:24px;
-    height:12px;
-    border-bottom:3px solid black;
-    border-radius:50%;
-    left:16px;
-    top:15px;
+    left:24px;
 }
 
 /* LEGS */
 
 .leg{
-    position:absolute;
-    width:18px;
-    height:55px;
-    background:#b67d45;
-    bottom:-30px;
-    border-radius:12px;
-    animation:walk 0.4s infinite alternate;
+    width:10px;
+    height:22px;
+    background:#a56d3f;
+    top:65px;
+    animation:walk 0.3s infinite alternate;
 }
 
 #leg1{
@@ -273,25 +229,17 @@ body{
 }
 
 #leg2{
-    left:65px;
-}
-
-#leg3{
-    right:65px;
-}
-
-#leg4{
-    right:25px;
+    left:55px;
 }
 
 @keyframes walk{
 
     from{
-        transform:rotate(8deg);
+        transform:translateY(0);
     }
 
     to{
-        transform:rotate(-8deg);
+        transform:translateY(4px);
     }
 
 }
@@ -299,13 +247,11 @@ body{
 /* TAIL */
 
 #tail{
-    position:absolute;
-    width:65px;
-    height:12px;
+    width:20px;
+    height:8px;
     background:#8b5a2b;
-    right:-40px;
-    top:20px;
-    border-radius:20px;
+    top:38px;
+    left:72px;
     transform-origin:left center;
     animation:wag 0.2s infinite alternate;
 }
@@ -322,24 +268,58 @@ body{
 
 }
 
-/* BUTTONS */
+/* UI */
 
-#buttons{
+#ui{
     position:absolute;
-    bottom:20px;
-    width:100%;
+    top:15px;
+    left:50%;
+    transform:translateX(-50%);
+    background:white;
+    padding:15px 30px;
+    border:5px solid black;
+    border-radius:15px;
+    font-size:24px;
+}
+
+/* QUESTION BOX */
+
+#questionBox{
+    position:absolute;
+    width:420px;
+    background:white;
+    border:6px solid black;
+    border-radius:20px;
+    left:50%;
+    top:50%;
+    transform:translate(-50%,-50%);
+    padding:30px;
+    display:none;
     text-align:center;
-    z-index:5;
+}
+
+#question{
+    font-size:42px;
+    margin-bottom:20px;
+}
+
+input{
+    width:180px;
+    padding:15px;
+    font-size:28px;
+    text-align:center;
+    border:4px solid black;
+    border-radius:12px;
 }
 
 button{
-    padding:15px 22px;
-    margin:8px;
+    margin-top:20px;
+    padding:14px 25px;
+    font-size:22px;
     border:none;
-    border-radius:16px;
+    border-radius:12px;
     background:#ff69b4;
     color:white;
-    font-size:20px;
     cursor:pointer;
 }
 
@@ -347,53 +327,11 @@ button:hover{
     background:#ff1493;
 }
 
-/* QUESTION BOX */
-
-#questionBox{
-    position:absolute;
-    top:120px;
-    left:50%;
-    transform:translateX(-50%);
-    width:500px;
-    background:white;
-    padding:25px;
-    border-radius:25px;
-    text-align:center;
-    display:none;
-    box-shadow:0 0 20px rgba(0,0,0,0.3);
-}
-
-#question{
-    font-size:40px;
-    margin-bottom:20px;
-}
-
-input{
-    width:200px;
-    padding:15px;
-    font-size:28px;
-    text-align:center;
-    border-radius:15px;
-    border:3px solid pink;
-}
-
 #message{
     margin-top:20px;
-    font-size:28px;
-    color:#ff1493;
-    min-height:40px;
-}
-
-/* LOCATION */
-
-#location{
-    position:absolute;
-    top:100px;
-    left:20px;
-    background:white;
-    padding:15px 20px;
-    border-radius:20px;
     font-size:24px;
+    color:#ff1493;
+    min-height:30px;
 }
 
 </style>
@@ -401,102 +339,99 @@ input{
 
 <body>
 
-<!-- START SCREEN -->
-
-<div id="startScreen">
-
-<h1>🐶 Math Dog Adventure 🐶</h1>
-
-<button id="playButton"
-onclick="startGame()">
-PLAY
-</button>
-
-</div>
-
-<!-- GAME -->
-
 <div id="game">
 
-<!-- TOP BAR -->
+<div id="sky"></div>
 
-<div id="topBar">
+<div id="sun"></div>
 
-<div>
+<div class="cloud c1"></div>
+<div class="cloud c2"></div>
+
+<!-- UI -->
+
+<div id="ui">
+
 💰 Coins:
 <span id="coins">0</span>
-</div>
 
-<div>
-⭐ XP:
-<span id="xp">0</span>
-</div>
+|
 
-<div>
-🏆 Level:
+⭐ Level:
 <span id="level">1</span>
-</div>
 
-<div>
-🍖 Hunger:
-<span id="hunger">100</span>
-</div>
+|
 
-<div>
-🎉 Happiness:
-<span id="happy">100</span>
-</div>
+🏆 XP:
+<span id="xp">0</span>
 
 </div>
 
-<!-- WORLD -->
+<!-- BUILDINGS -->
 
-<div id="world">
+<div class="building" id="school"
+onclick="openSchool()">
 
-<div id="sun">☀️</div>
+<div class="window"
+style="top:30px;left:30px"></div>
 
-<div class="cloud c1">☁️</div>
-<div class="cloud c2">☁️</div>
+<div class="window"
+style="top:30px;right:30px"></div>
 
-<div id="location">
-🏠 Home
+<div class="window"
+style="bottom:30px;left:30px"></div>
+
+<div class="window"
+style="bottom:30px;right:30px"></div>
+
+<div class="label">
+🎓 Academy
+</div>
+
+</div>
+
+<div class="building" id="shop">
+
+<div class="window"
+style="top:30px;left:30px"></div>
+
+<div class="window"
+style="top:30px;right:30px"></div>
+
+<div class="label">
+🛒 Shop
+</div>
+
+</div>
+
+<div class="building" id="park">
+
+<div class="label">
+🌳 Park
+</div>
+
 </div>
 
 <!-- DOG -->
 
 <div id="dog">
 
-<div id="dogHead">
+<div class="pixel ear" id="ear1"></div>
+<div class="pixel ear" id="ear2"></div>
 
-<div class="ear" id="ear1"></div>
-<div class="ear" id="ear2"></div>
+<div class="pixel" id="head"></div>
 
-<div class="eye" id="eye1"></div>
-<div class="eye" id="eye2"></div>
+<div class="pixel eye" id="eye1"></div>
+<div class="pixel eye" id="eye2"></div>
 
-<div id="snout">
+<div class="pixel" id="body"></div>
 
-<div id="nose"></div>
-<div id="mouth"></div>
+<div class="pixel leg" id="leg1"></div>
+<div class="pixel leg" id="leg2"></div>
 
-</div>
-
-</div>
-
-<div id="dogBody">
-
-<div id="tail"></div>
-
-<div class="leg" id="leg1"></div>
-<div class="leg" id="leg2"></div>
-<div class="leg" id="leg3"></div>
-<div class="leg" id="leg4"></div>
+<div class="pixel" id="tail"></div>
 
 </div>
-
-</div>
-
-<div id="ground"></div>
 
 <!-- QUESTION -->
 
@@ -506,11 +441,9 @@ PLAY
 Question
 </div>
 
-<input
-type="number"
-id="answer">
+<input type="number" id="answer">
 
-<br><br>
+<br>
 
 <button onclick="submitAnswer()">
 Submit
@@ -520,61 +453,15 @@ Submit
 
 </div>
 
-<!-- BUTTONS -->
-
-<div id="buttons">
-
-<button onclick="goHome()">
-🏠 Home
-</button>
-
-<button onclick="goSchool()">
-🎓 Math School
-</button>
-
-<button onclick="goPark()">
-🌳 Park
-</button>
-
-<button onclick="feedDog()">
-🍖 Feed
-</button>
-
-<button onclick="playDog()">
-🧸 Play
-</button>
-
-</div>
-
-</div>
-
 </div>
 
 <script>
 
-/* STATS */
-
 let coins = 0
 let xp = 0
 let level = 1
-let hunger = 100
-let happiness = 100
 
 let correctAnswer = 0
-let reward = 0
-let active = false
-
-/* START */
-
-function startGame(){
-
-    document.getElementById(
-    "startScreen").style.display=
-    "none"
-
-}
-
-/* UPDATE */
 
 function update(){
 
@@ -587,54 +474,19 @@ function update(){
     document.getElementById(
     "level").innerHTML=level
 
-    document.getElementById(
-    "hunger").innerHTML=hunger
-
-    document.getElementById(
-    "happy").innerHTML=happiness
-
 }
-
-/* RANDOM */
 
 function rand(min,max){
 
     return Math.floor(
-        Math.random()*
-        (max-min+1)
-    )+min
+    Math.random()*
+    (max-min+1))+min
 
 }
 
-/* LOCATIONS */
+/* OPEN SCHOOL */
 
-function goHome(){
-
-    document.getElementById(
-    "location").innerHTML=
-    "🏠 Home"
-
-    document.body.style.background=
-    "#87ceeb"
-
-}
-
-function goPark(){
-
-    document.getElementById(
-    "location").innerHTML=
-    "🌳 Park"
-
-    document.body.style.background=
-    "#8be28b"
-
-}
-
-function goSchool(){
-
-    document.getElementById(
-    "location").innerHTML=
-    "🎓 Math School"
+function openSchool(){
 
     document.getElementById(
     "questionBox").style.display=
@@ -648,18 +500,13 @@ function goSchool(){
 
 function newQuestion(){
 
-    active=true
-
-    let difficulty=
-    rand(1,3)
+    let type=rand(1,4)
 
     let q=""
 
     /* EASY */
 
-    if(difficulty==1){
-
-        reward=100
+    if(level<=2){
 
         let a=rand(100,999)
         let b=rand(100,999)
@@ -672,9 +519,7 @@ function newQuestion(){
 
     /* MEDIUM */
 
-    else if(difficulty==2){
-
-        reward=400
+    else if(level<=4){
 
         let a=rand(20,99)
         let b=rand(20,99)
@@ -689,18 +534,36 @@ function newQuestion(){
 
     else{
 
-        reward=1000
+        if(type==1){
 
-        let a=rand(100,999)
-        let b=rand(20,99)
-        let c=rand(50,200)
+            let ans=rand(20,50)
 
-        correctAnswer=
-        (a*b)+c
+            correctAnswer=ans
 
-        q=
-        `${a} × ${b}
-        + ${c}`
+            q=`√${ans*ans}`
+
+        }
+
+        else if(type==2){
+
+            let n=rand(10,20)
+
+            correctAnswer=n*n*n
+
+            q=`${n}³`
+
+        }
+
+        else{
+
+            let a=rand(100,999)
+            let b=rand(20,99)
+
+            correctAnswer=a*b
+
+            q=`${a} × ${b}`
+
+        }
 
     }
 
@@ -713,12 +576,6 @@ function newQuestion(){
 
 function submitAnswer(){
 
-    if(active==false){
-
-        return
-
-    }
-
     let user =
     Number(
     document.getElementById(
@@ -726,19 +583,15 @@ function submitAnswer(){
 
     if(user==correctAnswer){
 
-        coins += reward
-
-        xp += reward
-
-        happiness += 5
+        coins += level*100
+        xp += 200
 
         level =
-        Math.floor(xp/5000)+1
+        Math.floor(xp/1000)+1
 
         document.getElementById(
         "message").innerHTML=
-        `Correct! +${reward}
-        coins 🎉`
+        "CORRECT 🎉"
 
         newQuestion()
 
@@ -748,59 +601,9 @@ function submitAnswer(){
 
         document.getElementById(
         "message").innerHTML=
-        `Wrong 😭`
+        "Wrong 😭"
 
     }
-
-    update()
-
-}
-
-/* FEED */
-
-function feedDog(){
-
-    if(coins>=200){
-
-        coins-=200
-
-        hunger+=20
-
-        if(hunger>100){
-            hunger=100
-        }
-
-        document.getElementById(
-        "message").innerHTML=
-        "DOG IS HAPPY 🍖"
-
-    }
-
-    else{
-
-        document.getElementById(
-        "message").innerHTML=
-        "Need more coins!"
-
-    }
-
-    update()
-
-}
-
-/* PLAY */
-
-function playDog(){
-
-    happiness+=15
-
-    if(happiness>100){
-        happiness=100
-    }
-
-    document.getElementById(
-    "message").innerHTML=
-    "DOG HAD FUN 🧸"
 
     update()
 
@@ -811,110 +614,15 @@ function playDog(){
 const dog =
 document.getElementById("dog")
 
-function moveDog(){
+setInterval(function(){
 
     let x=
-    Math.random()*55+10
+    Math.random()*70+10
 
     dog.style.left=
     x+"%"
 
-}
-
-setInterval(moveDog,2500)
-
-/* BLINK */
-
-function blink(){
-
-    document.getElementById(
-    "eye1").classList.add(
-    "blink")
-
-    document.getElementById(
-    "eye2").classList.add(
-    "blink")
-
-    setTimeout(function(){
-
-        document.getElementById(
-        "eye1").classList.remove(
-        "blink")
-
-        document.getElementById(
-        "eye2").classList.remove(
-        "blink")
-
-    },200)
-
-}
-
-setInterval(blink,3000)
-
-/* DAY NIGHT */
-
-let day=true
-
-setInterval(function(){
-
-    if(day){
-
-        document.getElementById(
-        "world").style.background=
-        "linear-gradient(#0b1d51,#1f2f70)"
-
-        document.getElementById(
-        "sun").innerHTML=
-        "🌙"
-
-        day=false
-
-    }
-
-    else{
-
-        document.getElementById(
-        "world").style.background=
-        "linear-gradient(#87ceeb,#dff6ff)"
-
-        document.getElementById(
-        "sun").innerHTML=
-        "☀️"
-
-        day=true
-
-    }
-
-},30000)
-
-/* DECAY */
-
-setInterval(function(){
-
-    hunger-=1
-    happiness-=1
-
-    if(hunger<0){
-        hunger=0
-    }
-
-    if(happiness<0){
-        happiness=0
-    }
-
-    if(hunger==0 ||
-       happiness==0){
-
-        alert(
-        "Your dog ran away 😭")
-
-        location.reload()
-
-    }
-
-    update()
-
-},7000)
+},3000)
 
 update()
 
