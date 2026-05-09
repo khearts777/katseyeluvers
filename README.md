@@ -1,25 +1,23 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>Math Dog World</title>
+<meta charset="UTF-8">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>Ultimate Math Dog World</title>
 
 <style>
 
+/* BODY */
+
 body{
     margin:0;
-    font-family:Arial, sans-serif;
-    background:linear-gradient(to bottom,#87CEEB,#dff6ff);
-    overflow-y:auto;
-}
-
-/* MAIN AREA */
-
-#game{
-    width:100%;
-    min-height:100vh;
+    font-family:Arial;
+    overflow-x:hidden;
+    background:linear-gradient(#87ceeb,#dff6ff);
+    transition:1s;
 }
 
 /* TITLE */
@@ -27,33 +25,47 @@ body{
 h1{
     text-align:center;
     color:white;
-    padding-top:20px;
-    font-size:50px;
-    text-shadow:2px 2px 5px black;
+    font-size:52px;
+    margin-top:20px;
+    text-shadow:3px 3px 6px black;
 }
 
-/* SKY */
+/* TOP AREA */
 
-.sky{
-    height:450px;
+#top{
+    height:430px;
     position:relative;
     overflow:hidden;
+}
+
+/* SUN + MOON */
+
+#skyObject{
+    position:absolute;
+    right:60px;
+    top:40px;
+    font-size:70px;
 }
 
 /* CLOUDS */
 
 .cloud{
     position:absolute;
-    font-size:70px;
-    animation:moveCloud 30s linear infinite;
+    font-size:60px;
+    animation:cloudMove linear infinite;
+}
+
+.cloud1{
+    top:40px;
+    animation-duration:25s;
 }
 
 .cloud2{
-    top:100px;
-    animation-duration:45s;
+    top:130px;
+    animation-duration:40s;
 }
 
-@keyframes moveCloud{
+@keyframes cloudMove{
 
     from{
         left:-200px;
@@ -68,13 +80,83 @@ h1{
 /* DOG */
 
 #dog{
-    width:180px;
+    width:190px;
+    height:190px;
+    background:#c58c5b;
+    border-radius:50%;
     position:absolute;
-    top:180px;
     left:40%;
-    animation:bounce 1.2s infinite alternate;
-    transition:left 2s ease;
+    top:170px;
+    transition:all 2s ease;
+    animation:bounce 1s infinite alternate;
 }
+
+/* EARS */
+
+.ear{
+    width:50px;
+    height:70px;
+    background:#8b5a2b;
+    border-radius:50%;
+    position:absolute;
+}
+
+#ear1{
+    left:10px;
+    top:-20px;
+    transform:rotate(-25deg);
+}
+
+#ear2{
+    right:10px;
+    top:-20px;
+    transform:rotate(25deg);
+}
+
+/* EYES */
+
+.eye{
+    width:18px;
+    height:18px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    top:70px;
+}
+
+#eye1{
+    left:50px;
+}
+
+#eye2{
+    right:50px;
+}
+
+/* NOSE */
+
+#nose{
+    width:30px;
+    height:20px;
+    background:black;
+    border-radius:50%;
+    position:absolute;
+    left:80px;
+    top:100px;
+}
+
+/* MOUTH */
+
+#mouth{
+    width:40px;
+    height:20px;
+    border-bottom:4px solid black;
+    border-radius:50%;
+    position:absolute;
+    left:75px;
+    top:120px;
+}
+
+/* BOUNCE */
 
 @keyframes bounce{
 
@@ -83,48 +165,47 @@ h1{
     }
 
     to{
-        transform:translateY(-15px);
+        transform:translateY(-14px);
     }
 
 }
 
 /* GROUND */
 
-.ground{
+#ground{
     position:absolute;
     bottom:0;
     width:100%;
     height:120px;
-    background:#7CFC00;
+    background:#69d769;
 }
 
 /* PANEL */
 
 #panel{
     background:white;
-    margin:30px auto;
     width:90%;
     max-width:1100px;
-    border-radius:25px;
+    margin:30px auto;
     padding:30px;
+    border-radius:30px;
     box-shadow:0 0 20px rgba(0,0,0,0.2);
 }
 
 /* STATS */
 
 #stats{
-    font-size:28px;
     text-align:center;
-    margin-bottom:25px;
-    line-height:1.8;
+    font-size:28px;
+    line-height:2;
 }
 
 /* QUESTION */
 
 #question{
-    font-size:40px;
     text-align:center;
-    margin-bottom:20px;
+    font-size:40px;
+    margin:25px;
 }
 
 /* INPUT */
@@ -133,24 +214,22 @@ input{
     display:block;
     margin:auto;
     width:250px;
-    padding:18px;
+    padding:15px;
     font-size:28px;
     border-radius:15px;
     border:3px solid pink;
     text-align:center;
 }
 
-/* BUTTON AREA */
+/* BUTTONS */
 
 .buttons{
     text-align:center;
     margin-top:20px;
 }
 
-/* BUTTONS */
-
 button{
-    padding:18px 24px;
+    padding:16px 22px;
     margin:10px;
     border:none;
     border-radius:15px;
@@ -170,8 +249,8 @@ button:hover{
     text-align:center;
     font-size:30px;
     color:#ff1493;
-    margin-top:25px;
-    min-height:50px;
+    min-height:40px;
+    margin-top:20px;
 }
 
 h2{
@@ -185,23 +264,36 @@ h2{
 
 <body>
 
-<div id="game">
+<h1>🐶 Ultimate Math Dog World 🐶</h1>
 
-<h1>🐶 Math Dog World 🐶</h1>
+<div id="top">
 
-<div class="sky">
+<div id="skyObject">☀️</div>
 
-<div class="cloud">☁️</div>
+<div class="cloud cloud1">☁️</div>
 <div class="cloud cloud2">☁️</div>
 
-<img
-id="dog"
-src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"
->
+<!-- DOG -->
 
-<div class="ground"></div>
+<div id="dog">
+
+<div class="ear" id="ear1"></div>
+<div class="ear" id="ear2"></div>
+
+<div class="eye" id="eye1"></div>
+<div class="eye" id="eye2"></div>
+
+<div id="nose"></div>
+
+<div id="mouth"></div>
 
 </div>
+
+<div id="ground"></div>
+
+</div>
+
+<!-- PANEL -->
 
 <div id="panel">
 
@@ -209,6 +301,11 @@ src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"
 
 💰 Coins:
 <span id="coins">0</span>
+
+|
+
+💎 Gems:
+<span id="gems">0</span>
 
 |
 
@@ -222,8 +319,18 @@ src="https://upload.wikimedia.org/wikipedia/commons/6/6e/Golde33443.jpg"
 
 |
 
+❤️ Friendship:
+<span id="friendship">0</span>
+
+|
+
 🎂 Age:
 <span id="age">1</span>
+
+|
+
+🏆 Level:
+<span id="level">1</span>
 
 </div>
 
@@ -234,20 +341,19 @@ Choose a difficulty!
 <input
 type="number"
 id="answer"
-placeholder="Type answer"
->
+placeholder="Answer here">
 
 <div class="buttons">
 
-<button onclick="generateQuestion('easy')">
+<button onclick="question('easy')">
 Easy
 </button>
 
-<button onclick="generateQuestion('medium')">
+<button onclick="question('medium')">
 Medium
 </button>
 
-<button onclick="generateQuestion('hard')">
+<button onclick="question('hard')">
 Hard
 </button>
 
@@ -261,19 +367,19 @@ Submit
 
 <div class="buttons">
 
-<button onclick="buyFood('Apple',10,10)">
+<button onclick="buyFood(10,10)">
 🍎 Apple
 </button>
 
-<button onclick="buyFood('Cake',20,20)">
+<button onclick="buyFood(20,25)">
 🍰 Cake
 </button>
 
-<button onclick="buyFood('Pizza',35,35)">
+<button onclick="buyFood(40,45)">
 🍕 Pizza
 </button>
 
-<button onclick="buyFood('Steak',50,50)">
+<button onclick="buyFood(60,70)">
 🥩 Steak
 </button>
 
@@ -283,26 +389,58 @@ Submit
 
 <div class="buttons">
 
-<button onclick="buyToy('Ball',20)">
+<button onclick="buyToy(20)">
 ⚽ Ball
 </button>
 
-<button onclick="buyToy('Teddy',35)">
+<button onclick="buyToy(35)">
 🧸 Teddy
 </button>
 
-<button onclick="buyToy('Bone',50)">
+<button onclick="buyToy(50)">
 🦴 Bone
 </button>
 
 </div>
 
-<h2>⭐ Upgrade</h2>
+<h2>🧼 Care</h2>
+
+<div class="buttons">
+
+<button onclick="bathDog()">
+🛁 Bath
+</button>
+
+<button onclick="sleepDog()">
+🌙 Sleep
+</button>
+
+</div>
+
+<h2>🎨 Customization</h2>
+
+<div class="buttons">
+
+<button onclick="changeDogColor()">
+🎨 Change Fur
+</button>
+
+<button onclick="changeBackground()">
+🌈 Background
+</button>
+
+</div>
+
+<h2>⭐ Upgrades</h2>
 
 <div class="buttons">
 
 <button onclick="ageUp()">
-Age Up (100 Coins)
+Age Up (100)
+</button>
+
+<button onclick="buyLegendary()">
+👑 Legendary Dog
 </button>
 
 </div>
@@ -311,19 +449,21 @@ Age Up (100 Coins)
 
 </div>
 
-</div>
-
 <script>
 
 /* STATS */
 
 let coins = 0
+let gems = 0
 let hunger = 100
 let happiness = 100
+let friendship = 0
 let age = 1
+let level = 1
 
-let correctAnswer = 0
+let answer = 0
 let reward = 0
+let streak = 0
 
 const dog =
 document.getElementById("dog")
@@ -333,7 +473,7 @@ document.getElementById("dog")
 function moveDog(){
 
     let x =
-    Math.random() * 60 + 10
+    Math.random()*60+10
 
     dog.style.left =
     x + "%"
@@ -342,12 +482,26 @@ function moveDog(){
 
 setInterval(moveDog,2500)
 
+/* RANDOM */
+
+function rand(min,max){
+
+    return Math.floor(
+        Math.random()*
+        (max-min+1)
+    )+min
+
+}
+
 /* UPDATE */
 
-function updateStats(){
+function update(){
 
     document.getElementById("coins")
     .innerHTML = coins
+
+    document.getElementById("gems")
+    .innerHTML = gems
 
     document.getElementById("hunger")
     .innerHTML = hunger
@@ -355,182 +509,118 @@ function updateStats(){
     document.getElementById("happy")
     .innerHTML = happiness
 
+    document.getElementById("friendship")
+    .innerHTML = friendship
+
     document.getElementById("age")
     .innerHTML = age
 
-    if(hunger <= 0 ||
-       happiness <= 0){
-
-        alert(
-        "Your dog ran away 😭")
-
-        location.reload()
-
-    }
-
-}
-
-/* RANDOM */
-
-function rand(min,max){
-
-    return Math.floor(
-        Math.random() *
-        (max-min+1)
-    ) + min
+    document.getElementById("level")
+    .innerHTML = level
 
 }
 
 /* QUESTIONS */
 
-function generateQuestion(level){
+function question(diff){
 
     let types = [
-
         "times",
         "division",
-        "squareRoot",
+        "sqrt",
         "cube",
         "fraction",
-        "addition",
-        "subtraction",
         "mixed"
-
     ]
 
     let type =
-    types[rand(0,
-    types.length-1)]
+    types[rand(0,types.length-1)]
 
-    if(level == "easy"){
-        reward = 5
+    if(diff=="easy"){
+        reward=5
     }
 
-    if(level == "medium"){
-        reward = 15
+    if(diff=="medium"){
+        reward=15
     }
 
-    if(level == "hard"){
-        reward = 30
+    if(diff=="hard"){
+        reward=30
     }
 
     let q = ""
 
-    /* MULTIPLICATION */
+    if(type=="times"){
 
-    if(type == "times"){
+        let a=rand(2,12)
+        let b=rand(2,12)
 
-        let a = rand(2,12)
-        let b = rand(2,12)
+        answer=a*b
 
-        correctAnswer = a*b
-
-        q = `${a} × ${b}`
+        q=`${a} × ${b}`
 
     }
 
-    /* DIVISION */
+    else if(type=="division"){
 
-    else if(type == "division"){
+        let b=rand(2,12)
+        let ans=rand(2,12)
 
-        let b = rand(2,12)
-        let ans = rand(2,12)
+        let a=b*ans
 
-        let a = b*ans
+        answer=ans
 
-        correctAnswer = ans
-
-        q = `${a} ÷ ${b}`
+        q=`${a} ÷ ${b}`
 
     }
 
-    /* SQUARE ROOT */
+    else if(type=="sqrt"){
 
-    else if(type == "squareRoot"){
+        let ans=rand(2,15)
 
-        let ans = rand(2,15)
+        answer=ans
 
-        correctAnswer = ans
-
-        q = `√${ans*ans}`
+        q=`√${ans*ans}`
 
     }
 
-    /* CUBE */
+    else if(type=="cube"){
 
-    else if(type == "cube"){
+        let n=rand(2,5)
 
-        let n = rand(2,6)
+        answer=n*n*n
 
-        correctAnswer =
-        n*n*n
-
-        q = `${n}³`
+        q=`${n}³`
 
     }
 
-    /* FRACTIONS */
+    else if(type=="fraction"){
 
-    else if(type == "fraction"){
+        let a=rand(1,9)
+        let b=rand(1,9)
 
-        let a = rand(1,9)
-        let b = rand(1,9)
+        answer=a+b
 
-        correctAnswer =
-        (a+b)
-
-        q =
+        q=
         `${a}/10 + ${b}/10
         (numerator only)`
 
     }
 
-    /* ADDITION */
-
-    else if(type == "addition"){
-
-        let a = rand(10,99)
-        let b = rand(10,99)
-
-        correctAnswer =
-        a+b
-
-        q = `${a} + ${b}`
-
-    }
-
-    /* SUBTRACTION */
-
-    else if(type == "subtraction"){
-
-        let a = rand(50,100)
-        let b = rand(1,49)
-
-        correctAnswer =
-        a-b
-
-        q = `${a} - ${b}`
-
-    }
-
-    /* MIXED */
-
     else{
 
-        let a = rand(1,20)
-        let b = rand(1,10)
-        let c = rand(1,20)
+        let a=rand(1,20)
+        let b=rand(1,10)
+        let c=rand(1,20)
 
-        correctAnswer =
-        (a*b)+c
+        answer=(a*b)+c
 
-        q =
-        `${a} × ${b} + ${c}`
+        q=`${a} × ${b} + ${c}`
 
     }
 
     document.getElementById("question")
-    .innerHTML = q
+    .innerHTML=q
 
 }
 
@@ -543,135 +633,311 @@ function submitAnswer(){
     document.getElementById("answer")
     .value)
 
-    if(user == correctAnswer){
+    if(user==answer){
 
         coins += reward
 
-        document.getElementById("message")
-        .innerHTML =
-        `Correct! +${reward} coins 🎉`
+        friendship += 5
+
+        streak++
+
+        if(streak>=5){
+
+            gems += 1
+
+            document.getElementById("message")
+            .innerHTML=
+            `🔥 STREAK BONUS!
+            You earned a gem 💎`
+
+            streak=0
+
+        }
+
+        else{
+
+            document.getElementById("message")
+            .innerHTML=
+            `Correct! +${reward} coins 🎉`
+
+        }
 
     }
 
     else{
 
+        streak=0
+
         document.getElementById("message")
-        .innerHTML =
-        `Wrong 😭 Correct answer: ${correctAnswer}`
+        .innerHTML=
+        `Wrong 😭 Answer:
+        ${answer}`
 
     }
 
-    updateStats()
+    level =
+    Math.floor(coins/100)+1
+
+    update()
 
 }
 
 /* FOOD */
 
-function buyFood(name,cost,heal){
+function buyFood(cost,heal){
 
-    if(coins >= cost){
+    if(coins>=cost){
 
-        coins -= cost
+        coins-=cost
 
-        hunger += heal
+        hunger+=heal
 
-        if(hunger > 100){
-            hunger = 100
+        if(hunger>100){
+            hunger=100
         }
 
         document.getElementById("message")
-        .innerHTML =
-        `Your dog loved the ${name}!`
+        .innerHTML=
+        "Your dog enjoyed the food!"
 
     }
 
     else{
 
         document.getElementById("message")
-        .innerHTML =
+        .innerHTML=
         "Not enough coins!"
 
     }
 
-    updateStats()
+    update()
 
 }
 
-/* TOY */
+/* TOYS */
 
-function buyToy(name,cost){
+function buyToy(cost){
 
-    if(coins >= cost){
+    if(coins>=cost){
 
-        coins -= cost
+        coins-=cost
 
-        happiness += 20
+        happiness+=20
 
-        if(happiness > 100){
-            happiness = 100
+        friendship+=10
+
+        if(happiness>100){
+            happiness=100
         }
 
         document.getElementById("message")
-        .innerHTML =
-        `Your dog played with the ${name}!`
+        .innerHTML=
+        "Your dog is happier!"
 
     }
 
     else{
 
         document.getElementById("message")
-        .innerHTML =
+        .innerHTML=
         "Need more coins!"
 
     }
 
-    updateStats()
+    update()
 
 }
 
-/* AGE UP */
+/* BATH */
+
+function bathDog(){
+
+    happiness += 10
+
+    document.getElementById("message")
+    .innerHTML=
+    "Clean doggo 🛁"
+
+    update()
+
+}
+
+/* SLEEP */
+
+function sleepDog(){
+
+    hunger -= 5
+
+    happiness += 15
+
+    document.getElementById("message")
+    .innerHTML=
+    "Your dog rested 🌙"
+
+    update()
+
+}
+
+/* COLORS */
+
+function changeDogColor(){
+
+    let colors = [
+        "#c58c5b",
+        "#000000",
+        "#ffffff",
+        "#d4a373",
+        "#888888"
+    ]
+
+    dog.style.background =
+    colors[rand(0,4)]
+
+}
+
+/* BACKGROUND */
+
+function changeBackground(){
+
+    let colors = [
+
+        "linear-gradient(#87ceeb,#dff6ff)",
+
+        "linear-gradient(#ffb6c1,#ffe4ec)",
+
+        "linear-gradient(#c3b1ff,#e7dcff)",
+
+        "linear-gradient(#ffdd95,#fff4d6)"
+
+    ]
+
+    document.body.style.background =
+    colors[rand(0,3)]
+
+}
+
+/* AGE */
 
 function ageUp(){
 
-    if(coins >= 100){
+    if(coins>=100){
 
-        coins -= 100
+        coins-=100
 
-        age += 1
+        age++
 
-        dog.style.width =
-        (180 + age*10) + "px"
+        dog.style.transform=
+        `scale(${1+age*0.1})`
 
         document.getElementById("message")
-        .innerHTML =
-        "Your dog grew bigger ⭐"
+        .innerHTML=
+        "Your dog grew ⭐"
 
     }
 
     else{
 
         document.getElementById("message")
-        .innerHTML =
-        "Need more coins!"
+        .innerHTML=
+        "Need 100 coins!"
 
     }
 
-    updateStats()
+    update()
 
 }
+
+/* LEGENDARY */
+
+function buyLegendary(){
+
+    if(gems>=5){
+
+        gems-=5
+
+        dog.style.background=
+        "gold"
+
+        document.getElementById("message")
+        .innerHTML=
+        "👑 LEGENDARY DOG UNLOCKED!"
+
+    }
+
+    else{
+
+        document.getElementById("message")
+        .innerHTML=
+        "Need 5 gems!"
+
+    }
+
+    update()
+
+}
+
+/* DAY/NIGHT */
+
+let day=true
+
+setInterval(function(){
+
+    if(day){
+
+        document.body.style.background =
+        "linear-gradient(#0b1d51,#1b2f77)"
+
+        document.getElementById("skyObject")
+        .innerHTML="🌙"
+
+        day=false
+
+    }
+
+    else{
+
+        document.body.style.background =
+        "linear-gradient(#87ceeb,#dff6ff)"
+
+        document.getElementById("skyObject")
+        .innerHTML="☀️"
+
+        day=true
+
+    }
+
+},30000)
 
 /* DECAY */
 
 setInterval(function(){
 
-    hunger -= 1
-    happiness -= 1
+    hunger-=1
+    happiness-=1
 
-    updateStats()
+    if(hunger<0){
+        hunger=0
+    }
+
+    if(happiness<0){
+        happiness=0
+    }
+
+    if(hunger==0 ||
+       happiness==0){
+
+        alert(
+        "Your dog ran away 😭")
+
+        location.reload()
+
+    }
+
+    update()
 
 },6000)
 
-updateStats()
+update()
 
 </script>
 
