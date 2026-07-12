@@ -1,1 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>☁️ Cloudberry Study</title>
 
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Cute Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+<!-- Floating Background -->
+<div class="background">
+    <div class="cloud cloud1">☁️</div>
+    <div class="cloud cloud2">☁️</div>
+    <div class="cloud cloud3">☁️</div>
+
+    <div class="sparkle s1">✨</div>
+    <div class="sparkle s2">✨</div>
+    <div class="sparkle s3">✨</div>
+    <div class="sparkle s4">✨</div>
+</div>
+
+<!-- Main Card -->
+<div class="card">
+
+    <h1>☁️ Cloudberry Study 🍓</h1>
+
+    <p class="subtitle">
+        Your cozy little study space.
+    </p>
+
+    <!-- Timer -->
+    <div class="timer">
+
+        <div id="time">
+            25:00
+        </div>
+
+    </div>
+
+    <!-- Timer Settings -->
+    <div class="settings">
+
+        <label>
+
+            Study
+
+            <input
+                id="studyMinutes"
+                type="number"
+                min="1"
+                max="180"
+                value="25">
+
+            min
+
+        </label>
+
+        <label>
+
+            Break
+
+            <input
+                id="breakMinutes"
+                type="number"
+                min="1"
+                max="60"
+                value="5">
+
+            min
+
+        </label>
+
+    </div>
+
+    <!-- Buttons -->
+
+    <div class="buttons">
+
+        <button id="startBtn">
+            ▶ Start
+        </button>
+
+        <button id="pauseBtn">
+            ⏸ Pause
+        </button>
+
+        <button id="resetBtn">
+            🔄 Reset
+        </button>
+
+    </div>
+
+    <!-- Progress -->
+
+    <div class="progress">
+
+        <h3>⭐ Sessions</h3>
+
+        <p id="sessions">
+            0
+        </p>
+
+    </div>
+
+    <!-- Quote -->
+
+    <div class="quote">
+
+        <p id="quote">
+
+            🌸 Every page gets you closer to your dreams.
+
+        </p>
+
+    </div>
+
+</div>
+
+<script src="script.js"></script>
+
+</body>
+</html>
